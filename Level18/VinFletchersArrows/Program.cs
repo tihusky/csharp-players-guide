@@ -53,7 +53,7 @@ int length = GetIntBetween(60, 100, "Enter arrow length (60 to 100 cm):");
 
 var arrow = new Arrow(arrowhead, fletching, length);
 
-Console.WriteLine($"The price of this arrow will be {arrow.GetCost()} gold.");
+Console.WriteLine($"The price of this arrow will be {arrow.Cost} gold.");
 
 /********** Type Definitions **********/
 
@@ -71,43 +71,41 @@ namespace VinFletchersArrows {
     }
 
     class Arrow {
-        private readonly Arrowhead _arrowhead;
-        private readonly Fletching _fletching;
-        private readonly int _length;
+        public Arrowhead Arrowhead { get; }
+        public Fletching Fletching { get; }
+        public int Length { get; }
 
         public Arrow(Arrowhead arrowhead, Fletching fletching, int length) {
-            _arrowhead = arrowhead;
-            _fletching = fletching;
-            _length = length;
+            Arrowhead = arrowhead;
+            Fletching = fletching;
+            Length = length;
         }
 
-        public Arrowhead GetArrowhead() => _arrowhead;
-        public Fletching GetFletching() => _fletching;
-        public int GetLength() => _length;
+        public float Cost {
+            get {
+                const float costPerCm = 0.05f;
+                float totalCost = 0.0f;
 
-        public float GetCost() {
-            const float costPerCm = 0.05f;
-            float totalCost = 0.0f;
+                // Add cost for the arrowhead
+                totalCost += Arrowhead switch {
+                    Arrowhead.Steel => 10,
+                    Arrowhead.Wood => 3,
+                    Arrowhead.Obsidian => 5,
+                    _ => 0
+                };
 
-            // Add cost for the arrowhead
-            totalCost += _arrowhead switch {
-                Arrowhead.Steel => 10,
-                Arrowhead.Wood => 3,
-                Arrowhead.Obsidian => 5,
-                _ => 0
-            };
+                // Add cost for the fletching
+                totalCost += Fletching switch {
+                    Fletching.Plastic => 10,
+                    Fletching.TurkeyFeathers => 5,
+                    Fletching.GooseFeathers => 3,
+                    _ => 0
+                };
 
-            // Add cost for the fletching
-            totalCost += _fletching switch {
-                Fletching.Plastic => 10,
-                Fletching.TurkeyFeathers => 5,
-                Fletching.GooseFeathers => 3,
-                _ => 0
-            };
+                totalCost += (Length * costPerCm);
 
-            totalCost += (_length * costPerCm);
-
-            return totalCost;
+                return totalCost;
+            }
         }
     }
 }
