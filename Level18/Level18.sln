@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{042D23E6-8D2F-411A-8AA1-88DBB353615B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinFletchersArrows", "VinFletchersArrows\VinFletchersArrows.csproj", "{8C2FE1FB-6949-4A08-A6C4-630B8F6EE6E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{042D23E6-8D2F-411A-8AA1-88DBB353615B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042D23E6-8D2F-411A-8AA1-88DBB353615B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042D23E6-8D2F-411A-8AA1-88DBB353615B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042D23E6-8D2F-411A-8AA1-88DBB353615B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C2FE1FB-6949-4A08-A6C4-630B8F6EE6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C2FE1FB-6949-4A08-A6C4-630B8F6EE6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C2FE1FB-6949-4A08-A6C4-630B8F6EE6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C2FE1FB-6949-4A08-A6C4-630B8F6EE6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
