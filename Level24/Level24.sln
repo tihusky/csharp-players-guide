@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePoint", "ThePoint\ThePoint.csproj", "{170515D1-C35D-4E72-8969-81FC2FDA5CDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheColor", "TheColor\TheColor.csproj", "{EEC6FDCC-8B85-4847-9B82-9AAB13CB5DD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheCard", "TheCard\TheCard.csproj", "{F86AD445-F7C2-43EC-BD28-95A34AC91907}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{170515D1-C35D-4E72-8969-81FC2FDA5CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170515D1-C35D-4E72-8969-81FC2FDA5CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170515D1-C35D-4E72-8969-81FC2FDA5CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170515D1-C35D-4E72-8969-81FC2FDA5CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC6FDCC-8B85-4847-9B82-9AAB13CB5DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC6FDCC-8B85-4847-9B82-9AAB13CB5DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC6FDCC-8B85-4847-9B82-9AAB13CB5DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC6FDCC-8B85-4847-9B82-9AAB13CB5DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86AD445-F7C2-43EC-BD28-95A34AC91907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86AD445-F7C2-43EC-BD28-95A34AC91907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86AD445-F7C2-43EC-BD28-95A34AC91907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86AD445-F7C2-43EC-BD28-95A34AC91907}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
