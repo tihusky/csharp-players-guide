@@ -34,7 +34,7 @@ public class Round
         int playerOneInput = ConsoleHelper.GetIntBetween(1, 3, ">");
         _playerOneChoice = (PlayerChoice)playerOneInput;
         Console.Clear();
-        
+
         // Ask for and store player two's choice
         Console.WriteLine("""
                           Player Two, make your choice:
@@ -43,7 +43,7 @@ public class Round
                           3) Scissors
                           """
         );
-        
+
         int playerTwoInput = ConsoleHelper.GetIntBetween(1, 3, ">");
         _playerTwoChoice = (PlayerChoice)playerTwoInput;
         Console.Clear();
@@ -59,17 +59,13 @@ public class Round
         if ((_playerOneChoice == PlayerChoice.Rock && _playerTwoChoice == PlayerChoice.Scissors) ||
             (_playerOneChoice == PlayerChoice.Paper && _playerTwoChoice == PlayerChoice.Rock) ||
             (_playerOneChoice == PlayerChoice.Scissors && _playerTwoChoice == PlayerChoice.Paper))
-        {
             return RoundResult.PlayerOneWon;
-        }
 
         // Check for all cases in which player two won
         if ((_playerOneChoice == PlayerChoice.Rock && _playerTwoChoice == PlayerChoice.Paper) ||
             (_playerOneChoice == PlayerChoice.Paper && _playerTwoChoice == PlayerChoice.Scissors) ||
             (_playerOneChoice == PlayerChoice.Scissors && _playerTwoChoice == PlayerChoice.Rock))
-        {
             return RoundResult.PlayerTwoWon;
-        }
 
         return RoundResult.Draw;
     }

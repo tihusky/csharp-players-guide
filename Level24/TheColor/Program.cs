@@ -1,6 +1,6 @@
 ﻿using TheColor;
 
-RgbColor color1 = new RgbColor(100, 75, 90);
+var color1 = new RgbColor(100, 75, 90);
 RgbColor color2 = RgbColor.Blue;
 
 Console.WriteLine($"R: {color1.R,-3} G: {color1.G,-3} B: {color1.B,-3}");

@@ -1,13 +1,15 @@
 ﻿namespace TheCard;
 
-public enum Color {
+public enum Color
+{
     Red = 0,
     Green,
     Blue,
     Yellow
 }
 
-public enum Rank {
+public enum Rank
+{
     One = 0,
     Two,
     Three,
@@ -24,13 +26,23 @@ public enum Rank {
     Ampersand
 }
 
-public class Card {
+public class Card
+{
+    public Card(Color color, Rank rank)
+    {
+        Color = color;
+        Rank = rank;
+    }
+
     public Color Color { get; }
     public Rank Rank { get; }
 
-    public bool IsFaceCard {
-        get {
-            switch (this.Rank) {
+    public bool IsFaceCard
+    {
+        get
+        {
+            switch (Rank)
+            {
                 case Rank.Dollar:
                 case Rank.Percent:
                 case Rank.Caret:
@@ -43,9 +55,4 @@ public class Card {
     }
 
     public bool IsNumberCard => !IsFaceCard;
-    
-    public Card(Color color, Rank rank) {
-        Color = color;
-        Rank = rank;
-    }
 }

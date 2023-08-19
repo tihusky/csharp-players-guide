@@ -1,14 +1,13 @@
 ﻿using ThePoint;
 
-var points = new Point[] {
-    new Point(),
-    new Point(2, 3),
-    new Point(-4, 0)
+var points = new Point[]
+{
+    new(),
+    new(2, 3),
+    new(-4, 0)
 };
 
-foreach (Point p in points) {
-    Console.WriteLine($"({p.X}, {p.Y})");
-}
+foreach (Point p in points) Console.WriteLine($"({p.X}, {p.Y})");
 
 /*
  * I decided to make the X and Y properties immutable because in my opinion

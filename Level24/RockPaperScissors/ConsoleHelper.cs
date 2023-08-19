@@ -9,11 +9,8 @@ public static class ConsoleHelper
             Console.Write(prompt + " ");
             bool isParseable = int.TryParse(Console.ReadLine(), out int number);
 
-            if (isParseable && number >= min && number <= max)
-            {
-                return number;
-            }
-            
+            if (isParseable && number >= min && number <= max) return number;
+
             WriteLineColored("Invalid input.", ConsoleColor.Red);
         }
     }

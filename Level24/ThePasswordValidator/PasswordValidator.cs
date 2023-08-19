@@ -17,9 +17,8 @@ public static class PasswordValidator
     private static bool HasLowercaseLetter()
     {
         foreach (char ch in _password)
-        {
-            if (char.IsLower(ch)) return true;
-        }
+            if (char.IsLower(ch))
+                return true;
 
         return false;
     }
@@ -27,9 +26,8 @@ public static class PasswordValidator
     private static bool HasUppercaseLetter()
     {
         foreach (char ch in _password)
-        {
-            if (char.IsUpper(ch)) return true;
-        }
+            if (char.IsUpper(ch))
+                return true;
 
         return false;
     }
@@ -37,9 +35,8 @@ public static class PasswordValidator
     private static bool HasNumber()
     {
         foreach (char ch in _password)
-        {
-            if (char.IsNumber(ch)) return true;
-        }
+            if (char.IsNumber(ch))
+                return true;
 
         return false;
     }
@@ -47,9 +44,8 @@ public static class PasswordValidator
     private static bool HasForbiddenChar()
     {
         foreach (char ch in _password)
-        {
-            if (ForbiddenChars.Contains(ch)) return true;
-        }
+            if (ForbiddenChars.Contains(ch))
+                return true;
 
         return false;
     }

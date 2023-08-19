@@ -1,12 +1,12 @@
 ﻿using TheLockedDoor;
 
-string ReadPasscode(string prompt) {
-    while (true) {
+string ReadPasscode(string prompt)
+{
+    while (true)
+    {
         string? passcode = ConsoleHelper.GetString(prompt);
 
-        if (!string.IsNullOrEmpty(passcode)) {
-            return passcode;
-        }
+        if (!string.IsNullOrEmpty(passcode)) return passcode;
 
         ConsoleHelper.WriteLineColored(ConsoleColor.Red, "Passcode can't be empty.");
     }
@@ -15,10 +15,12 @@ string ReadPasscode(string prompt) {
 string passcode = ReadPasscode("Enter initial passcode:");
 var door = new Door(passcode);
 
-while (true) {
+while (true)
+{
     string? command = ConsoleHelper.GetString($"The door is {door.State}. What do you want to do?");
 
-    switch (command) {
+    switch (command)
+    {
         case "open":
             door.Open();
             break;
@@ -30,10 +32,8 @@ while (true) {
             break;
         case "unlock":
         {
-            if (door.State == DoorState.Locked) {
-                door.Unlock(ReadPasscode("Enter current passcode:"));
-            }
-            
+            if (door.State == DoorState.Locked) door.Unlock(ReadPasscode("Enter current passcode:"));
+
             break;
         }
         case "setpasscode":
@@ -41,12 +41,10 @@ while (true) {
             string currentCode = ReadPasscode("Enter current passcode:");
             string newCode = ReadPasscode("Enter new passcode:");
 
-            if (door.SetPasscode(currentCode, newCode)) {
+            if (door.SetPasscode(currentCode, newCode))
                 ConsoleHelper.WriteLineColored(ConsoleColor.Green, "Passcode changed.");
-            }
-            else {
+            else
                 ConsoleHelper.WriteLineColored(ConsoleColor.Red, "Invalid passcode.");
-            }
 
             break;
         }

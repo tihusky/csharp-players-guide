@@ -2,7 +2,7 @@
 
 public class Game
 {
-    private readonly HistoricalRecord _scores = new ();
+    private readonly HistoricalRecord _scores = new();
 
     public void Run()
     {
@@ -27,12 +27,12 @@ public class Game
             {
                 Console.WriteLine("It's a draw!");
             }
-            
+
             Console.Write("\nPlay again? (y/n) ");
             string userInput = Console.ReadLine()?.Trim().ToLower() ?? "n";
             isRunning = userInput == "y";
         } while (isRunning);
-        
+
         Console.Clear();
         Console.WriteLine($"Player One Score: {_scores.PlayerOneScore}");
         Console.WriteLine($"Player Two Score: {_scores.PlayerTwoScore}");
