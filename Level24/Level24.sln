@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePasswordValidator", "The
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors", "RockPaperScissors\RockPaperScissors.csproj", "{03DCF90F-544D-487B-A204-F989C730AD1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FifteenPuzzle", "FifteenPuzzle\FifteenPuzzle.csproj", "{711BDC3E-04CE-4DB8-B8AF-148FFB3E2875}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{03DCF90F-544D-487B-A204-F989C730AD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03DCF90F-544D-487B-A204-F989C730AD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03DCF90F-544D-487B-A204-F989C730AD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711BDC3E-04CE-4DB8-B8AF-148FFB3E2875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711BDC3E-04CE-4DB8-B8AF-148FFB3E2875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711BDC3E-04CE-4DB8-B8AF-148FFB3E2875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711BDC3E-04CE-4DB8-B8AF-148FFB3E2875}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
