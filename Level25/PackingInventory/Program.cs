@@ -20,7 +20,7 @@ int GetIntBetween(int min, int max, string prompt)
     }
 }
 
-Pack pack = new Pack(10, 25.0f, 25.0f);
+Pack pack = new Pack(3, 25.0f, 25.0f);
 
 while (true)
 {
@@ -65,14 +65,16 @@ while (true)
 
 public class Pack
 {
-    private InventoryItem[] _items;
+    private readonly InventoryItem[] _items;
+
+    private readonly int _itemLimit;
     private int _itemCount = 0;
     private readonly float _weightLimit;
     private float _currentWeight = 0.0f;
     private readonly float _volumeLimit;
     private float _currentVolume = 0.0f;
 
-    public string CurrentItemCount => $"{_itemCount}/{_items.Length}";
+    public string CurrentItemCount => $"{_itemCount}/{_itemLimit}";
     public string CurrentWeight => $"{_currentWeight:0.00}/{_weightLimit:0.00}";
     public string CurrentVolume => $"{_currentVolume:0.00}/{_volumeLimit:0.00}";
     public string Stats => $"Items: {CurrentItemCount} Weight: {CurrentWeight} Volume: {CurrentVolume}";
@@ -80,23 +82,25 @@ public class Pack
     public Pack(int itemLimit, float weightLimit, float volumeLimit)
     {
         _items = new InventoryItem[itemLimit];
+
+        _itemLimit = itemLimit;
         _weightLimit = weightLimit;
         _volumeLimit = volumeLimit;
     }
 
     public bool Add(InventoryItem item)
     {
-        int newItemCount = _itemCount + 1;
-        float newWeight = _currentWeight + item.Weight;
-        float newVolume = _currentVolume + item.Volume;
-
-        if (newItemCount > _items.Length || newWeight > _weightLimit || newVolume > _volumeLimit)
+        if ((_itemCount + 1 > _itemLimit) ||
+            (_currentWeight + item.Weight > _weightLimit) ||
+            (_currentVolume + item.Volume > _volumeLimit)
+           )
             return false;
 
         _items[_itemCount] = item;
+        _currentWeight += item.Weight;
+        _currentVolume += item.Volume;
+        
         _itemCount++;
-        _currentWeight = newWeight;
-        _currentVolume = newVolume;
 
         return true;
     }
@@ -116,30 +120,42 @@ public class InventoryItem
 
 public class Arrow : InventoryItem
 {
-    public Arrow() : base(0.1f, 0.05f) {}
+    public Arrow() : base(0.1f, 0.05f)
+    {
+    }
 }
 
 public class Bow : InventoryItem
 {
-    public Bow() : base(1.0f, 4.0f) {}
+    public Bow() : base(1.0f, 4.0f)
+    {
+    }
 }
 
 public class Rope : InventoryItem
 {
-    public Rope() : base(1.0f, 1.5f) {}
+    public Rope() : base(1.0f, 1.5f)
+    {
+    }
 }
 
 public class Water : InventoryItem
 {
-    public Water() : base(2.0f, 3.0f) {}
+    public Water() : base(2.0f, 3.0f)
+    {
+    }
 }
 
 public class FoodRation : InventoryItem
 {
-    public FoodRation() : base(1.0f, 0.5f) {}
+    public FoodRation() : base(1.0f, 0.5f)
+    {
+    }
 }
 
 public class Sword : InventoryItem
 {
-    public Sword() : base(5.0f, 3.0f) {}
+    public Sword() : base(5.0f, 3.0f)
+    {
+    }
 }
