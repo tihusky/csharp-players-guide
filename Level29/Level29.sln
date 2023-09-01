@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level29", "Level29\Level29.csproj", "{D464E19B-F289-4063-865C-E71B66BB730C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarPreparations", "WarPreparations\WarPreparations.csproj", "{52998366-4392-41A9-9B85-E95504F36722}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D464E19B-F289-4063-865C-E71B66BB730C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D464E19B-F289-4063-865C-E71B66BB730C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D464E19B-F289-4063-865C-E71B66BB730C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D464E19B-F289-4063-865C-E71B66BB730C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52998366-4392-41A9-9B85-E95504F36722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52998366-4392-41A9-9B85-E95504F36722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52998366-4392-41A9-9B85-E95504F36722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52998366-4392-41A9-9B85-E95504F36722}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
