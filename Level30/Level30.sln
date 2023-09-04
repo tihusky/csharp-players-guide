@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level30", "Level30\Level30.csproj", "{852D611D-B4AC-42D3-AFEE-2E0D82910BC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoredItems", "ColoredItems\ColoredItems.csproj", "{46A38920-F629-4449-B3E7-494A3ECDF733}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{852D611D-B4AC-42D3-AFEE-2E0D82910BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852D611D-B4AC-42D3-AFEE-2E0D82910BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852D611D-B4AC-42D3-AFEE-2E0D82910BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852D611D-B4AC-42D3-AFEE-2E0D82910BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46A38920-F629-4449-B3E7-494A3ECDF733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A38920-F629-4449-B3E7-494A3ECDF733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A38920-F629-4449-B3E7-494A3ECDF733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A38920-F629-4449-B3E7-494A3ECDF733}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

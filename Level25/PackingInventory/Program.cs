@@ -20,12 +20,12 @@ int GetIntBetween(int min, int max, string prompt)
     }
 }
 
-Pack pack = new Pack(3, 25.0f, 25.0f);
+Pack pack = new Pack(10, 25.0f, 25.0f);
 
 while (true)
 {
     Console.Clear();
-    Console.WriteLine($"{pack.Stats}\n");
+    Console.WriteLine(pack + "\n");
     Console.WriteLine("""
                       What kind of item do you want to add?
                       1) Arrow
@@ -74,11 +74,6 @@ public class Pack
     private readonly float _volumeLimit;
     private float _currentVolume = 0.0f;
 
-    public string CurrentItemCount => $"{_itemCount}/{_itemLimit}";
-    public string CurrentWeight => $"{_currentWeight:0.00}/{_weightLimit:0.00}";
-    public string CurrentVolume => $"{_currentVolume:0.00}/{_volumeLimit:0.00}";
-    public string Stats => $"Items: {CurrentItemCount} Weight: {CurrentWeight} Volume: {CurrentVolume}";
-
     public Pack(int itemLimit, float weightLimit, float volumeLimit)
     {
         _items = new InventoryItem[itemLimit];
@@ -104,6 +99,32 @@ public class Pack
 
         return true;
     }
+
+    public override string ToString()
+    {
+        string result = $"Items: {_itemCount}/{_itemLimit} " +
+                        $"Weight: {_currentWeight:0.00}/{_weightLimit:0.00} " +
+                        $"Volume: {_currentVolume:0.00}/{_volumeLimit:0.00}\n";
+
+        if (_itemCount == 0)
+        {
+            result += "The pack is currently empty.";
+        }
+        else
+        {
+            result += "Pack Contents: ";
+            
+            for (int idx = 0; idx < _itemCount; idx++)
+            {
+                if (idx != 0)
+                    result += ", ";
+
+                result += _items[idx].ToString();
+            }
+        }
+        
+        return result;
+    }
 }
 
 public class InventoryItem
@@ -123,6 +144,8 @@ public class Arrow : InventoryItem
     public Arrow() : base(0.1f, 0.05f)
     {
     }
+
+    public override string ToString() => "Arrow";
 }
 
 public class Bow : InventoryItem
@@ -130,6 +153,8 @@ public class Bow : InventoryItem
     public Bow() : base(1.0f, 4.0f)
     {
     }
+
+    public override string ToString() => "Bow";
 }
 
 public class Rope : InventoryItem
@@ -137,6 +162,8 @@ public class Rope : InventoryItem
     public Rope() : base(1.0f, 1.5f)
     {
     }
+
+    public override string ToString() => "Rope";
 }
 
 public class Water : InventoryItem
@@ -144,6 +171,8 @@ public class Water : InventoryItem
     public Water() : base(2.0f, 3.0f)
     {
     }
+
+    public override string ToString() => "Water";
 }
 
 public class FoodRation : InventoryItem
@@ -151,6 +180,8 @@ public class FoodRation : InventoryItem
     public FoodRation() : base(1.0f, 0.5f)
     {
     }
+
+    public override string ToString() => "Food Ration";
 }
 
 public class Sword : InventoryItem
@@ -158,4 +189,6 @@ public class Sword : InventoryItem
     public Sword() : base(5.0f, 3.0f)
     {
     }
+
+    public override string ToString() => "Sword";
 }
