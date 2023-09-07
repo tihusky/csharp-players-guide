@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FountainOfObjects
+namespace FountainOfObjects;
+
+public interface ISensable
 {
-    public interface ISensable
-    {
-        bool CanBeSensed(Position playerPosition);
-        string GetDescription();
-    }
+    bool CanBeSensed(Position playerPosition);
+    string GetDescription();
 }

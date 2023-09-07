@@ -5,21 +5,20 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FountainOfObjects
+namespace FountainOfObjects;
+
+internal class Entrance : ISensable
 {
-    internal class Entrance : ISensable
+    public Position Position { get; }
+
+    public Entrance(Position position)
     {
-        public Position Position { get; }
-
-        public Entrance(Position position)
-        {
-            Position = position;
-        }
-
-        public bool CanBeSensed(Position playerPosition) =>
-            Position.Row == playerPosition.Row && Position.Column == playerPosition.Column;
-
-        public string GetDescription() => 
-            "You see light in this room coming from outside the cavern. This is the entrance.";
+        Position = position;
     }
+
+    public bool CanBeSensed(Position playerPosition) =>
+        Position.Row == playerPosition.Row && Position.Column == playerPosition.Column;
+
+    public string GetDescription() => 
+        "You see light in this room coming from outside the cavern. This is the entrance.";
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FountainOfObjects;
 
-public record Position(int Row, int Column)
+internal enum Direction
 {
-    public override string ToString()
-    {
-        return $"(Row: {Row}, Column: {Column})";
-    }
+    North,
+    East,
+    South,
+    West
 }

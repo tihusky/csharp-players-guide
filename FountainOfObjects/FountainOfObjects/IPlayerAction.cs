@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace FountainOfObjects;
 
-public record Position(int Row, int Column)
+internal interface IPlayerAction
 {
-    public override string ToString()
-    {
-        return $"(Row: {Row}, Column: {Column})";
-    }
+    public bool Perform();
 }
