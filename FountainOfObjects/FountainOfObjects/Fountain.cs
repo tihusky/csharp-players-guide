@@ -21,7 +21,8 @@ public class Fountain : ISensable
 
     public string GetDescription()
     {
-        return IsActivated ? "You hear the rushing waters from the Fountain of Objects. It has been reactivated!"
-                            : "You hear water dripping in this room. The Fountain of Objects is here!";
+        return IsActivated
+            ? "You hear the rushing waters from the Fountain of Objects. It has been reactivated!"
+            : "You hear water dripping in this room. The Fountain of Objects is here!";
     }
 }

@@ -11,13 +11,9 @@ internal class Game
     public Map Map { get; }
     public Player Player { get; }
 
-    public Game()
+    public Game(Map map)
     {
-        Map = new Map(
-            new Entrance(new Position(0, 0)),
-            new Fountain(new Position(0, 2))
-        );
-
+        Map = map;
         Player = new Player(Map.Entrance.Position);
     }
 
@@ -91,7 +87,8 @@ internal class Game
                 Console.ReadKey();
             }
 
-            isRunning = !Map.Fountain.IsActivated || (Map.Fountain.IsActivated && Player.Position != Map.Entrance.Position);
+            isRunning = !Map.Fountain.IsActivated ||
+                        (Map.Fountain.IsActivated && Player.Position != Map.Entrance.Position);
         }
 
         Console.WriteLine("The Fountain of Objects has been reactivated, and you have escaped with your life!");

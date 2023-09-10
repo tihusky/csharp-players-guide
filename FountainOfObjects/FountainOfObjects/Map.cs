@@ -8,13 +8,15 @@ namespace FountainOfObjects;
 
 internal class Map
 {
-    public int Rows { get; } = 4;
-    public int Columns { get; } = 4;
+    public int Rows { get; }
+    public int Columns { get; }
     public Entrance Entrance { get; }
     public Fountain Fountain { get; }
 
-    public Map(Entrance entrance, Fountain fountain)
+    public Map(int rows, int columns, Entrance entrance, Fountain fountain)
     {
+        Rows = rows;
+        Columns = columns;
         Entrance = entrance;
         Fountain = fountain;
     }
