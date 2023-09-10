@@ -1,6 +1,6 @@
 ﻿namespace FountainOfObjects;
 
-public struct ColoredMessage
+internal struct ColoredMessage
 {
     public ConsoleColor Color { get; }
     public string Message { get; }

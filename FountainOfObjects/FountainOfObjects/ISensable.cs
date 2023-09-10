@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace FountainOfObjects;
 
-public interface ISensable
+internal interface ISensable
 {
+    Position Position { get; }
+    
     bool CanBeSensed(Position playerPosition);
     ColoredMessage GetDescription();
 }

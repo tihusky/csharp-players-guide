@@ -23,7 +23,7 @@ internal class Game
 
         if (sensables.Count < 1) return;
 
-        foreach (var sensable in sensables)
+        foreach (ISensable sensable in sensables)
         {
             ConsoleHelper.WriteColoredMessage(sensable.GetDescription());
         }
@@ -83,11 +83,20 @@ internal class Game
                 Console.ReadKey();
             }
 
-            isRunning = !Map.Fountain.IsActivated ||
-                        (Map.Fountain.IsActivated && Player.Position != Map.Entrance.Position);
+            isRunning = Player.IsAlive &&
+                        (!Map.Fountain.IsActivated || Player.Position != Map.Entrance.Position);
         }
 
-        Console.WriteLine("The Fountain of Objects has been reactivated, and you have escaped with your life!");
-        Console.WriteLine("You win!");
+        Console.Clear();
+
+        if (Player.IsAlive)
+        {
+            Console.WriteLine("The Fountain of Objects has been reactivated, and you have escaped with your life!");
+            Console.WriteLine("You win!");
+        }
+        else
+        {
+            Console.WriteLine("You died!");
+        }
     }
 }

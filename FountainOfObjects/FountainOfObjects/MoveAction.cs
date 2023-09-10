@@ -30,13 +30,11 @@ internal class MoveAction : IPlayerAction
             _ => _player.Position
         };
 
-        if (_map.IsPositionValid(newPosition))
-        {
-            _player.Position = newPosition;
+        if (!_map.IsPositionValid(newPosition)) return false;
 
-            return true;
-        }
+        _player.Position = newPosition;
+        _map.GetObstacleAt(_player.Position)?.ApplyEffects(_player);
 
-        return false;
+        return true;
     }
 }

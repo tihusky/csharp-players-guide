@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FountainOfObjects;
 
-public record Position(int Row, int Column)
+internal record Position(int Row, int Column)
 {
     public override string ToString()
     {

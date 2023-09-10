@@ -1,6 +1,6 @@
 ﻿namespace FountainOfObjects;
 
-public static class ConsoleHelper
+internal static class ConsoleHelper
 {
     public static void WriteColoredMessage(ColoredMessage cm)
     {

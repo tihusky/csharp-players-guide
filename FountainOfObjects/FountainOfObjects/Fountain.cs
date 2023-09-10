@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FountainOfObjects;
 
-public class Fountain : ISensable
+internal class Fountain : ISensable
 {
     public Position Position { get; }
     public bool IsActivated { get; set; }
