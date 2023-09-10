@@ -9,5 +9,5 @@ namespace FountainOfObjects;
 public interface ISensable
 {
     bool CanBeSensed(Position playerPosition);
-    string GetDescription();
+    ColoredMessage GetDescription();
 }

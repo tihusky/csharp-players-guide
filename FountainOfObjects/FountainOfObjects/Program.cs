@@ -12,9 +12,7 @@ int GetIntBetween(int min, int max, string prompt)
             return number;
         }
 
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Invalid input.");
-        Console.ResetColor();
+        ConsoleHelper.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "Invalid input."));
     }
 }
 

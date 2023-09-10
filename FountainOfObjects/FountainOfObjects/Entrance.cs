@@ -19,6 +19,9 @@ internal class Entrance : ISensable
     public bool CanBeSensed(Position playerPosition) =>
         Position.Row == playerPosition.Row && Position.Column == playerPosition.Column;
 
-    public string GetDescription() => 
-        "You see light in this room coming from outside the cavern. This is the entrance.";
+    public ColoredMessage GetDescription() =>
+        new(
+            ConsoleColor.Yellow,
+            "You see light in this room coming from outside the cavern. This is the entrance."
+        );
 }

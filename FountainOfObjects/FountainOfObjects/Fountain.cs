@@ -19,10 +19,12 @@ public class Fountain : ISensable
     public bool CanBeSensed(Position playerPosition) =>
         Position.Row == playerPosition.Row && Position.Column == playerPosition.Column;
 
-    public string GetDescription()
+    public ColoredMessage GetDescription()
     {
-        return IsActivated
+        string message = IsActivated
             ? "You hear the rushing waters from the Fountain of Objects. It has been reactivated!"
             : "You hear water dripping in this room. The Fountain of Objects is here!";
+
+        return new ColoredMessage(ConsoleColor.Blue, message);
     }
 }

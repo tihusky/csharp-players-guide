@@ -25,7 +25,7 @@ internal class Game
 
         foreach (var sensable in sensables)
         {
-            Console.WriteLine(sensable.GetDescription());
+            ConsoleHelper.WriteColoredMessage(sensable.GetDescription());
         }
 
         Console.WriteLine();
@@ -59,9 +59,7 @@ internal class Game
                 };
             }
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Invalid selection.");
-            Console.ResetColor();
+            ConsoleHelper.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "Invalid input."));
         }
     }
 
@@ -80,9 +78,7 @@ internal class Game
 
             if (!success)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("You can't do that.");
-                Console.ResetColor();
+                ConsoleHelper.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "You can't do that here."));
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
             }
