@@ -11,9 +11,8 @@ internal static class MapBuilder
             new Fountain(new Position(0, 2))
         );
         
-        map.AddObstacle(
-            new Pit(new Position(1, 2))
-        );
+        map.AddObstacle(new Pit(new Position(1, 2)));
+        map.AddObstacle(new Amarok(new Position(3, 1)));
 
         return map;
     }
@@ -27,12 +26,10 @@ internal static class MapBuilder
             new Fountain(new Position(2, 4))
         );
         
-        map.AddObstacle(
-            new Pit(new Position(2, 2))
-        );
-        map.AddObstacle(
-            new Pit(new Position(4, 3))
-        );
+        map.AddObstacle(new Pit(new Position(2, 2)));
+        map.AddObstacle(new Pit(new Position(4, 3)));
+        map.AddObstacle(new Amarok(new Position(1, 1)));
+        map.AddObstacle(new Amarok(new Position(3, 4)));
 
         return map;
     }
@@ -46,16 +43,13 @@ internal static class MapBuilder
             new Fountain(new Position(1, 1))
         );
 
-        map.AddObstacle(
-            new Pit(new Position(1, 3))
-        );
-        map.AddObstacle(
-            new Pit(new Position(3, 1))
-        );map.AddObstacle(
-            new Pit(new Position(4, 5))
-        );map.AddObstacle(
-            new Pit(new Position(5, 2))
-        );
+        map.AddObstacle(new Pit(new Position(1, 3)));
+        map.AddObstacle(new Pit(new Position(3, 1)));
+        map.AddObstacle(new Pit(new Position(4, 5)));
+        map.AddObstacle(new Pit(new Position(5, 2)));
+        map.AddObstacle(new Amarok(new Position(4, 3)));
+        map.AddObstacle(new Amarok(new Position(5, 0)));
+        map.AddObstacle(new Amarok(new Position(6, 6)));
         
         return map;
     }
