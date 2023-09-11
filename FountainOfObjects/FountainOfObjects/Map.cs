@@ -13,6 +13,8 @@ internal class Map
     public Entrance Entrance { get; }
     public Fountain Fountain { get; }
 
+    private readonly List<Pit> _pits = new();
+    
     public Map(int rows, int columns, Entrance entrance, Fountain fountain)
     {
         Rows = rows;
@@ -24,12 +26,41 @@ internal class Map
     public bool IsOnMap(Position position)
         => (position.Row >= 0 && position.Row < Rows) && (position.Column >= 0 && position.Column < Columns);
 
+    public void AddPit(Position position)
+    {
+        if (IsOnMap(position))
+        {
+            _pits.Add(new Pit(position));
+        }
+    }
+
+    public Obstacle? GetObstacleAt(Position position)
+    {
+        foreach (Pit pit in _pits)
+        {
+            if (pit.Position == position)
+            {
+                return pit;
+            }
+        }
+
+        return null;
+    }
+    
     public List<GameObject> GetSensables(Position playerPosition)
     {
         var sensables = new List<GameObject>();
 
         if (Entrance.IsSensable(playerPosition)) sensables.Add(Entrance);
         if (Fountain.IsSensable(playerPosition)) sensables.Add(Fountain);
+
+        foreach (Pit pit in _pits)
+        {
+            if (pit.IsSensable(playerPosition))
+            {
+                sensables.Add(pit);
+            }
+        }
 
         return sensables;
     }

@@ -1,10 +1,12 @@
-﻿namespace FountainOfObjects;
+﻿/* The base for anything special on the map. */
+
+namespace FountainOfObjects;
 
 internal abstract class GameObject
 {
     public Position Position { get; }
 
-    public GameObject(Position position)
+    protected GameObject(Position position)
     {
         Position = position;
     }

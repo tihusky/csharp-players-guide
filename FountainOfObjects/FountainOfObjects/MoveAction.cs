@@ -33,6 +33,7 @@ internal class MoveAction : IPlayerAction
         if (!_map.IsOnMap(newPosition)) return false;
 
         _player.Position = newPosition;
+        _map.GetObstacleAt(_player.Position)?.ApplyEffects(_player);
 
         return true;
     }

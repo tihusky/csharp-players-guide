@@ -10,6 +10,8 @@ internal static class MapBuilder
             new Entrance(new Position(0, 0)),
             new Fountain(new Position(0, 2))
         );
+        
+        map.AddPit(new Position(1, 2));
 
         return map;
     }
@@ -22,6 +24,9 @@ internal static class MapBuilder
             new Entrance(new Position(4, 0)),
             new Fountain(new Position(2, 4))
         );
+        
+        map.AddPit(new Position(2, 2));
+        map.AddPit(new Position(4, 3));
 
         return map;
     }
@@ -34,6 +39,11 @@ internal static class MapBuilder
             new Entrance(new Position(7, 5)),
             new Fountain(new Position(1, 1))
         );
+        
+        map.AddPit(new Position(1, 3));
+        map.AddPit(new Position(3, 1));
+        map.AddPit(new Position(4, 5));
+        map.AddPit(new Position(5, 2));
 
         return map;
     }
