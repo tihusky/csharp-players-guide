@@ -38,11 +38,15 @@ internal class Game
                           2) Move East
                           3) Move South
                           4) Move West
-                          5) Enable Fountain
+                          5) Shoot North
+                          6) Shoot East
+                          7) Shoot South
+                          8) Shoot West
+                          9) Enable Fountain
                           """
         );
 
-        int userChoice = ConsoleHelper.GetIntBetween(1, 5, ">");
+        int userChoice = ConsoleHelper.GetIntBetween(1, 9, ">");
 
         return userChoice switch
         {
@@ -50,7 +54,11 @@ internal class Game
             2 => new MoveAction(_player, _map, Direction.East),
             3 => new MoveAction(_player, _map, Direction.South),
             4 => new MoveAction(_player, _map, Direction.West),
-            5 => new EnableAction(_player, _map)
+            5 => new ShootAction(_player, _map, Direction.North),
+            6 => new ShootAction(_player, _map, Direction.East),
+            7 => new ShootAction(_player, _map, Direction.South),
+            8 => new ShootAction(_player, _map, Direction.West),
+            9 => new EnableAction(_player, _map)
         };
     }
 
@@ -61,7 +69,8 @@ internal class Game
         while (isRunning)
         {
             Console.Clear();
-            Console.WriteLine($"You are at {_player.Position}\n");
+            Console.WriteLine($"You are at position {_player.Position}.");
+            Console.WriteLine($"You have {_player.Arrows} arrows left.\n");
 
             PrintSurroundings();
 

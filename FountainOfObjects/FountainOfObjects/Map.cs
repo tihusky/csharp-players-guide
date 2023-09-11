@@ -43,25 +43,26 @@ internal class Map
         }
     }
 
+    public Pit? GetPitAt(Position position)
+    {
+        return _pits.Find(pit => pit.Position == position);
+    }
+
+    public Monster? GetMonsterAt(Position position)
+    {
+        return _monsters.Find(monster => monster.Position == position && monster.IsAlive);
+    }
+
     public Obstacle? GetObstacleAt(Position position)
     {
-        foreach (Pit pit in _pits)
+        Pit? pit = GetPitAt(position);
+
+        if (pit != null)
         {
-            if (pit.Position == position)
-            {
-                return pit;
-            }
+            return pit;
         }
 
-        foreach (Monster monster in _monsters)
-        {
-            if (monster.Position == position && monster.IsAlive)
-            {
-                return monster;
-            }
-        }
-
-        return null;
+        return GetMonsterAt(position);
     }
     
     public List<GameObject> GetSensables(Position playerPosition)

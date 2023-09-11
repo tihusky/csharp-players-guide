@@ -10,6 +10,7 @@ internal class Player
 {
     public bool IsAlive { get; set; }
     public Position Position { get; set; }
+    public int Arrows { get; set; } = 5;
 
     public Player(Position position)
     {
