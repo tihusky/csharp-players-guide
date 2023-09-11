@@ -14,6 +14,7 @@ internal class Map
     public Fountain Fountain { get; }
 
     private readonly List<Pit> _pits = new();
+    private readonly List<Monster> _monsters = new();
     
     public Map(int rows, int columns, Entrance entrance, Fountain fountain)
     {
@@ -34,6 +35,14 @@ internal class Map
         }
     }
 
+    public void AddMonster(Monster monster)
+    {
+        if (IsOnMap(monster.Position))
+        {
+            _monsters.Add(monster);
+        }
+    }
+
     public Obstacle? GetObstacleAt(Position position)
     {
         foreach (Pit pit in _pits)
@@ -41,6 +50,14 @@ internal class Map
             if (pit.Position == position)
             {
                 return pit;
+            }
+        }
+
+        foreach (Monster monster in _monsters)
+        {
+            if (monster.Position == position && monster.IsAlive)
+            {
+                return monster;
             }
         }
 
@@ -59,6 +76,14 @@ internal class Map
             if (pit.IsSensable(playerPosition))
             {
                 sensables.Add(pit);
+            }
+        }
+
+        foreach (Monster monster in _monsters)
+        {
+            if (monster.IsSensable(playerPosition))
+            {
+                sensables.Add(monster);
             }
         }
 

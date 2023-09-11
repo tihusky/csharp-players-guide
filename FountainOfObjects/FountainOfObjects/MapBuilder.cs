@@ -12,7 +12,8 @@ internal static class MapBuilder
         );
         
         map.AddPit(new Position(1, 2));
-
+        map.AddMonster(new Amarok(new Position(3, 1)));
+        
         return map;
     }
 
@@ -27,6 +28,8 @@ internal static class MapBuilder
         
         map.AddPit(new Position(2, 2));
         map.AddPit(new Position(4, 3));
+        map.AddMonster(new Amarok(new Position(1, 1)));
+        map.AddMonster(new Amarok(new Position(3, 4)));
 
         return map;
     }
@@ -44,6 +47,9 @@ internal static class MapBuilder
         map.AddPit(new Position(3, 1));
         map.AddPit(new Position(4, 5));
         map.AddPit(new Position(5, 2));
+        map.AddMonster(new Amarok(new Position(4, 3)));
+        map.AddMonster(new Amarok(new Position(5, 0)));
+        map.AddMonster(new Amarok(new Position(6, 6)));
 
         return map;
     }
