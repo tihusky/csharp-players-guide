@@ -1,21 +1,5 @@
 ﻿using FountainOfObjects;
 
-int GetIntBetween(int min, int max, string prompt)
-{
-    while (true)
-    {
-        Console.Write($"{prompt} ");
-        bool isNumber = int.TryParse(Console.ReadLine(), out int number);
-
-        if (isNumber && number >= min && number <= max)
-        {
-            return number;
-        }
-
-        ConsoleHelper.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "Invalid input."));
-    }
-}
-
 Console.WriteLine("""
                   Pick the map size:
                   1) Small
@@ -24,7 +8,7 @@ Console.WriteLine("""
                   """
 );
 
-int userChoice = GetIntBetween(1, 3, ">");
+int userChoice = ConsoleHelper.GetIntBetween(1, 3, ">");
 
 Map map = userChoice switch
 {

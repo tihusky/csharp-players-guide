@@ -8,24 +8,24 @@ namespace FountainOfObjects;
 
 internal class Game
 {
-    public Map Map { get; }
-    public Player Player { get; }
+    private readonly Map _map;
+    private readonly Player _player;
 
     public Game(Map map)
     {
-        Map = map;
-        Player = new Player(Map.Entrance.Position);
+        _map = map;
+        _player = new Player(_map.Entrance.Position);
     }
 
     private void PrintSurroundings()
     {
-        var sensables = Map.GetSensables(Player.Position);
+        var sensableObjects = _map.GetSensables(_player.Position);
 
-        if (sensables.Count < 1) return;
+        if (sensableObjects.Count < 1) return;
 
-        foreach (ISensable sensable in sensables)
+        foreach (GameObject gameObject in sensableObjects)
         {
-            ConsoleHelper.WriteColoredMessage(sensable.GetDescription());
+            ConsoleHelper.WriteColoredMessage(gameObject.Description);
         }
 
         Console.WriteLine();
@@ -42,25 +42,16 @@ internal class Game
                           """
         );
 
-        while (true)
+        int userChoice = ConsoleHelper.GetIntBetween(1, 5, ">");
+
+        return userChoice switch
         {
-            Console.Write("> ");
-            bool isNumber = int.TryParse(Console.ReadLine(), out int number);
-
-            if (isNumber && number >= 1 && number <= 5)
-            {
-                return number switch
-                {
-                    1 => new MoveAction(Player, Map, Direction.North),
-                    2 => new MoveAction(Player, Map, Direction.East),
-                    3 => new MoveAction(Player, Map, Direction.South),
-                    4 => new MoveAction(Player, Map, Direction.West),
-                    5 => new EnableAction(Player, Map)
-                };
-            }
-
-            ConsoleHelper.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "Invalid input."));
-        }
+            1 => new MoveAction(_player, _map, Direction.North),
+            2 => new MoveAction(_player, _map, Direction.East),
+            3 => new MoveAction(_player, _map, Direction.South),
+            4 => new MoveAction(_player, _map, Direction.West),
+            5 => new EnableAction(_player, _map)
+        };
     }
 
     public void Run()
@@ -70,7 +61,7 @@ internal class Game
         while (isRunning)
         {
             Console.Clear();
-            Console.WriteLine($"You are at {Player.Position}\n");
+            Console.WriteLine($"You are at {_player.Position}\n");
 
             PrintSurroundings();
 
@@ -83,13 +74,13 @@ internal class Game
                 Console.ReadKey();
             }
 
-            isRunning = Player.IsAlive &&
-                        (!Map.Fountain.IsActivated || Player.Position != Map.Entrance.Position);
+            isRunning = _player.IsAlive &&
+                        (!_map.Fountain.IsActivated || _player.Position != _map.Entrance.Position);
         }
 
         Console.Clear();
 
-        if (Player.IsAlive)
+        if (_player.IsAlive)
         {
             Console.WriteLine("The Fountain of Objects has been reactivated, and you have escaped with your life!");
             Console.WriteLine("You win!");

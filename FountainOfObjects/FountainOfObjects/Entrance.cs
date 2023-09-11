@@ -7,19 +7,11 @@ using System.Threading.Tasks;
 
 namespace FountainOfObjects;
 
-internal class Entrance : ISensable
+internal class Entrance : GameObject
 {
-    public Position Position { get; }
+    public Entrance(Position position) : base(position) {}
 
-    public Entrance(Position position)
-    {
-        Position = position;
-    }
-
-    public bool CanBeSensed(Position playerPosition) =>
-        Position.Row == playerPosition.Row && Position.Column == playerPosition.Column;
-
-    public ColoredMessage GetDescription() =>
+    public override ColoredMessage Description =>
         new(
             ConsoleColor.Yellow,
             "You see light in this room coming from outside the cavern. This is the entrance."
