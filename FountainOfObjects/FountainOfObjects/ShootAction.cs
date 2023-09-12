@@ -29,14 +29,15 @@ internal class ShootAction : IPlayerAction
 
         if (!_map.IsOnMap(target))
             return new ActionResult(false, "You can't shoot in that direction.");
-
+        
+        _player.Arrows--;
+        
         Monster? monster = _map.GetMonsterAt(target);
 
         if (monster == null)
             return new ActionResult(true, "You shoot an arrow but hit nothing.");
         
         monster.IsAlive = false;
-        _player.Arrows--;
 
         return new ActionResult(true, "Your aim is true and you hit a monster!");
     }

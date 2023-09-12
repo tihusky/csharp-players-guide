@@ -1,6 +1,6 @@
 ﻿namespace FountainOfObjects;
 
-internal static class ConsoleHelper
+internal static class Helpers
 {
     public static void WriteColoredMessage(ColoredMessage cm)
     {
@@ -21,7 +21,7 @@ internal static class ConsoleHelper
                 return number;
             }
 
-            ConsoleHelper.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "Invalid input."));
+            Helpers.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "Invalid input."));
         }
     }
 }
