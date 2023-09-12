@@ -8,5 +8,5 @@ namespace FountainOfObjects;
 
 internal interface IPlayerAction
 {
-    public bool Perform();
+    public ActionResult Perform();
 }

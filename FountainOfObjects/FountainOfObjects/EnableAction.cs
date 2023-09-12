@@ -17,15 +17,15 @@ internal class EnableAction : IPlayerAction
         _map = map;
     }
 
-    public bool Perform()
+    public ActionResult Perform()
     {
         if (_player.Position == _map.Fountain.Position)
         {
             _map.Fountain.IsActivated = true;
 
-            return true;
+            return new ActionResult(true, "You hear a quiet click as you press the button to reactivate the Fountain.");
         }
 
-        return false;
+        return new ActionResult(false, "The Fountain isn't in this room. Keep looking!");
     }
 }

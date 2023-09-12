@@ -19,7 +19,7 @@ internal class MoveAction : IPlayerAction
         _direction = direction;
     }
 
-    public bool Perform()
+    public ActionResult Perform()
     {
         var newPosition = _direction switch
         {
@@ -30,11 +30,12 @@ internal class MoveAction : IPlayerAction
             _ => _player.Position
         };
 
-        if (!_map.IsOnMap(newPosition)) return false;
+        if (!_map.IsOnMap(newPosition))
+            return new ActionResult(false, "You can't go in that direction.");
 
         _player.Position = newPosition;
         _map.GetObstacleAt(_player.Position)?.ApplyEffects(_player);
 
-        return true;
+        return new ActionResult(true, $"You carefully step into the room to the {_direction}.");
     }
 }

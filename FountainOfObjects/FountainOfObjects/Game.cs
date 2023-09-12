@@ -17,20 +17,6 @@ internal class Game
         _player = new Player(_map.Entrance.Position);
     }
 
-    private void PrintSurroundings()
-    {
-        var sensableObjects = _map.GetSensables(_player.Position);
-
-        if (sensableObjects.Count < 1) return;
-
-        foreach (GameObject gameObject in sensableObjects)
-        {
-            ConsoleHelper.WriteColoredMessage(gameObject.Description);
-        }
-
-        Console.WriteLine();
-    }
-
     private IPlayerAction GetPlayerAction()
     {
         Console.WriteLine("""
@@ -62,6 +48,41 @@ internal class Game
         };
     }
 
+    private void PrintActionResult(ActionResult result)
+    {
+        Console.Clear();
+        ConsoleHelper.WriteColoredMessage(
+            new ColoredMessage(result.Success ? ConsoleColor.Green : ConsoleColor.Red, result.Message));
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+    }
+    
+    private void PrintPlayerStatus()
+    {
+        Console.WriteLine(
+            $"Row: {_player.Position.Row}, Column: {_player.Position.Column}, Arrows: {_player.Arrows}"
+        );
+    }
+
+    private void PrintSurroundings()
+    {
+        var sensables = _map.GetSensables(_player.Position);
+
+        if (sensables.Count == 0)
+        {
+            ConsoleHelper.WriteColoredMessage(new ColoredMessage(
+                ConsoleColor.DarkGray, "You don't sense anything special in your immediate surroundings.")
+            );
+
+            return;
+        }
+        
+        foreach (GameObject gameObject in sensables)
+        {
+            ConsoleHelper.WriteColoredMessage(gameObject.Description);
+        }
+    }
+
     public void Run()
     {
         bool isRunning = true;
@@ -69,20 +90,15 @@ internal class Game
         while (isRunning)
         {
             Console.Clear();
-            Console.WriteLine($"You are at position {_player.Position}.");
-            Console.WriteLine($"You have {_player.Arrows} arrows left.\n");
-
+            PrintPlayerStatus();
+            Console.Write('\n');
             PrintSurroundings();
+            Console.Write('\n');
 
-            bool success = GetPlayerAction().Perform();
-
-            if (!success)
-            {
-                ConsoleHelper.WriteColoredMessage(new ColoredMessage(ConsoleColor.Red, "You can't do that here."));
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-            }
-
+            ActionResult result = GetPlayerAction().Perform();
+            
+            PrintActionResult(result);
+            
             isRunning = _player.IsAlive &&
                         (!_map.Fountain.IsActivated || _player.Position != _map.Entrance.Position);
         }
@@ -91,12 +107,18 @@ internal class Game
 
         if (_player.IsAlive)
         {
-            Console.WriteLine("The Fountain of Objects has been reactivated, and you have escaped with your life!");
-            Console.WriteLine("You win!");
+            ConsoleHelper.WriteColoredMessage(
+                new ColoredMessage(
+                    ConsoleColor.Green,
+                    "The Fountain of Objects has been reactivated, and you have escaped with your life!\nYou win!"
+                )
+            );
         }
         else
         {
-            Console.WriteLine("You died!");
+            ConsoleHelper.WriteColoredMessage(
+                new ColoredMessage(ConsoleColor.Red, "You died! The Uncoded One's forces were victorious.")
+            );
         }
     }
 }

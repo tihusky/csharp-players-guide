@@ -2,9 +2,9 @@
 
 internal class ShootAction : IPlayerAction
 {
-    private Player _player;
-    private Map _map;
-    private Direction _direction;
+    private readonly Player _player;
+    private readonly Map _map;
+    private readonly Direction _direction;
 
     public ShootAction(Player player, Map map, Direction direction)
     {
@@ -13,9 +13,10 @@ internal class ShootAction : IPlayerAction
         _direction = direction;
     }
 
-    public bool Perform()
+    public ActionResult Perform()
     {
-        if (_player.Arrows <= 0) return false;
+        if (_player.Arrows <= 0)
+            return new ActionResult(false, "You don't have any arrows left.");
 
         Position target = _direction switch
         {
@@ -26,14 +27,17 @@ internal class ShootAction : IPlayerAction
             _ => _player.Position
         };
 
-        if (!_map.IsOnMap(target)) return false;
+        if (!_map.IsOnMap(target))
+            return new ActionResult(false, "You can't shoot in that direction.");
 
         Monster? monster = _map.GetMonsterAt(target);
 
-        if (monster != null) monster.IsAlive = false;
-
+        if (monster == null)
+            return new ActionResult(true, "You shoot an arrow but hit nothing.");
+        
+        monster.IsAlive = false;
         _player.Arrows--;
 
-        return true;
+        return new ActionResult(true, "Your aim is true and you hit a monster!");
     }
 }
