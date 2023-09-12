@@ -8,7 +8,7 @@ Console.WriteLine("""
                   """
 );
 
-int userChoice = ConsoleHelper.GetIntBetween(1, 3, ">");
+int userChoice = Helpers.GetIntBetween(1, 3, ">");
 
 Map map = userChoice switch
 {
