@@ -15,5 +15,5 @@ internal abstract class Obstacle : GameObject
         return rowDelta <= 1 && columnDelta <= 1;
     }
     
-    public abstract void ApplyEffects(Player player);
+    public abstract void ApplyEffects(Map map, Player player);
 }

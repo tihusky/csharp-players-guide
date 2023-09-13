@@ -4,7 +4,7 @@ namespace FountainOfObjects;
 
 internal abstract class GameObject
 {
-    public Position Position { get; }
+    public Position Position { get; protected set; }
 
     protected GameObject(Position position)
     {

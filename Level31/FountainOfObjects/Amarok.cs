@@ -4,7 +4,7 @@ internal class Amarok : Monster
 {
     public Amarok(Position position) : base(position) {}
 
-    public override void ApplyEffects(Player player)
+    public override void ApplyEffects(Map map, Player player)
     {
         player.IsAlive = false;
     }

@@ -27,6 +27,22 @@ internal class Map
     public bool IsOnMap(Position position)
         => (position.Row >= 0 && position.Row < Rows) && (position.Column >= 0 && position.Column < Columns);
 
+    public bool IsEmpty(Position position)
+    {
+        if (Entrance.Position == position) return false;
+        if (Fountain.Position == position) return false;
+
+        return GetObstacleAt(position) == null;
+    }
+
+    public Position Clamp(Position position)
+    {
+        int row = Math.Clamp(position.Row, 0, Rows - 1);
+        int column = Math.Clamp(position.Column, 0, Columns - 1);
+
+        return new Position(row, column);
+    }
+
     public void AddPit(Position position)
     {
         if (IsOnMap(position))

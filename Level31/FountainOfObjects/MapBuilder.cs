@@ -13,6 +13,7 @@ internal static class MapBuilder
         
         map.AddPit(new Position(1, 2));
         map.AddMonster(new Amarok(new Position(3, 1)));
+        map.AddMonster(new Maelstrom(new Position(2, 0)));
         
         return map;
     }

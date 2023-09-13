@@ -34,7 +34,7 @@ internal class MoveAction : IPlayerAction
             return new ActionResult(false, "You can't go in that direction.");
 
         _player.Position = newPosition;
-        _map.GetObstacleAt(_player.Position)?.ApplyEffects(_player);
+        _map.GetObstacleAt(_player.Position)?.ApplyEffects(_map, _player);
 
         return new ActionResult(true, $"You carefully step into the room to the {_direction}.");
     }
