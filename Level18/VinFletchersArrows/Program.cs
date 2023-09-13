@@ -43,34 +43,49 @@ Fletching GetFletching() {
     };
 }
 
-Arrowhead arrowhead = GetArrowhead();
-Console.Clear();
+Arrow CreateCustomArrow() {
+    Console.Clear();
+    Arrowhead arrowhead = GetArrowhead();
+    Console.Clear();
+    Fletching fletching = GetFletching();
+    Console.Clear();
+    int length = GetIntBetween(60, 100, "Enter arrow length (60 - 100cm):");
 
-Fletching fletching = GetFletching();
-Console.Clear();
+    return new Arrow(arrowhead, fletching, length);
+}
 
-int length = GetIntBetween(60, 100, "Enter arrow length (60 to 100 cm):");
+int userSelection = GetIntBetween(1, 4, @"Pick the type of arrow you want:
+1) Elite Arrow
+2) Beginner Arrow
+3) Marksman Arrow
+4) Custom Arrow
+>");
 
-var arrow = new Arrow(arrowhead, fletching, length);
+Arrow arrow = userSelection switch {
+    1 => Arrow.CreateEliteArrow(),
+    2 => Arrow.CreateBeginnerArrow(),
+    3 => Arrow.CreateMarksmanArrow(),
+    _ => CreateCustomArrow()
+};
 
-Console.WriteLine($"The price of this arrow will be {arrow.Cost} gold.");
+Console.WriteLine($"This arrow costs {arrow.Cost} gold.");
 
 /********** Type Definitions **********/
 
 namespace VinFletchersArrows {
-    enum Arrowhead {
+    internal enum Arrowhead {
         Steel,
         Wood,
         Obsidian
     }
 
-    enum Fletching {
+    internal enum Fletching {
         Plastic,
         TurkeyFeathers,
         GooseFeathers
     }
 
-    class Arrow {
+    internal class Arrow {
         public Arrowhead Arrowhead { get; }
         public Fletching Fletching { get; }
         public int Length { get; }
@@ -106,6 +121,18 @@ namespace VinFletchersArrows {
 
                 return totalCost;
             }
+        }
+
+        public static Arrow CreateEliteArrow() {
+            return new Arrow(Arrowhead.Steel, Fletching.Plastic, 95);
+        }
+
+        public static Arrow CreateBeginnerArrow() {
+            return new Arrow(Arrowhead.Wood, Fletching.GooseFeathers, 75);
+        }
+
+        public static Arrow CreateMarksmanArrow() {
+            return new Arrow(Arrowhead.Steel, Fletching.GooseFeathers, 65);
         }
     }
 }
