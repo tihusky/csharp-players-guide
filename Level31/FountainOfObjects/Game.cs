@@ -163,7 +163,7 @@ internal class Game
         else
         {
             Helpers.WriteColoredMessage(
-                new ColoredMessage(ConsoleColor.Red, "You died! The Uncoded One's forces were victorious.")
+                new ColoredMessage(ConsoleColor.Red, _player.DeathReason!)
             );
         }
     }

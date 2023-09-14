@@ -6,7 +6,7 @@ internal class Amarok : Monster
 
     public override void ApplyEffects(Map map, Player player)
     {
-        player.IsAlive = false;
+        player.Die("You were mauled to death by an amarok.");
     }
     
     public override ColoredMessage Description =>

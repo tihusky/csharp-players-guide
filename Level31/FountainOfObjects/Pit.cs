@@ -6,7 +6,7 @@ internal class Pit : Obstacle
 
     public override void ApplyEffects(Map map, Player player)
     {
-        player.IsAlive = false;
+        player.Die("You fell into a deep pit and broke your neck.");
     }
 
     public override ColoredMessage Description =>
