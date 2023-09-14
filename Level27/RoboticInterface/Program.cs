@@ -1,48 +1,31 @@
-﻿int GetIntBetween(int min, int max, string prompt)
+﻿var robot = new Robot();
+
+string userInput;
+
+do
 {
-    while (true)
+    Console.Write("Enter next command: ");
+    userInput = Console.ReadLine()?.Trim().ToLower() ?? "stop";
+
+    if (userInput != "stop")
     {
-        Console.Write($"{prompt} ");
-        bool isNumber = int.TryParse(Console.ReadLine(), out int number);
+        IRobotCommand? command = userInput switch
+        {
+            "on" => new OnCommand(),
+            "off" => new OffCommand(),
+            "north" => new NorthCommand(),
+            "east" => new EastCommand(),
+            "south" => new SouthCommand(),
+            "west" => new WestCommand(),
+            _ => null
+        };
 
-        if (isNumber && number >= min && number <= max)
-            return number;
-
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Invalid input.");
-        Console.ResetColor();
+        if (command != null)
+            robot.Commands.Add(command);
+        else
+            Console.WriteLine("Invalid command.");
     }
-}
-
-var robot = new Robot();
-
-for (int i = 0; i < robot.Commands.Length; i++)
-{
-    Console.Clear();
-    Console.WriteLine("""
-                      Select the next command...
-                      1) On
-                      2) North
-                      3) East
-                      4) South
-                      5) West
-                      6) Off
-                      """
-    );
-
-    int userSelection = GetIntBetween(1, 6, ">");
-
-    robot.Commands[i] = userSelection switch
-    {
-        1 => new OnCommand(),
-        2 => new NorthCommand(),
-        3 => new EastCommand(),
-        4 => new SouthCommand(),
-        5 => new WestCommand(),
-        6 => new OffCommand(),
-        _ => throw new NotImplementedException()
-    };
-}
+} while (userInput != "stop");
 
 Console.Clear();
 robot.Run();
@@ -54,7 +37,7 @@ public class Robot
     public int X { get; set; }
     public int Y { get; set; }
     public bool IsPowered { get; set; }
-    public IRobotCommand[] Commands { get; } = new IRobotCommand[3];
+    public List<IRobotCommand> Commands { get; } = new();
 
     public void Run()
     {

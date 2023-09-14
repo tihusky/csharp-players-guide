@@ -105,7 +105,8 @@ internal class Game
         );
         Console.WriteLine("\nPress any key to continue...");
         Console.ReadKey();
-        
+
+        DateTime startTime = DateTime.Now;
         bool isRunning = true;
 
         while (isRunning)
@@ -166,5 +167,11 @@ internal class Game
                 new ColoredMessage(ConsoleColor.Red, _player.DeathReason!)
             );
         }
+
+        TimeSpan duration = DateTime.Now - startTime;
+
+        Console.WriteLine(
+            $"\nYou spent {duration.Hours} hours, {duration.Minutes} minutes and {duration.Seconds} seconds in the caverns."
+        );
     }
 }
