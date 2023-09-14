@@ -139,7 +139,10 @@ internal class Game
             {
                 ActionResult result = NumberToAction(userSelection).Perform();
                 
-                PrintActionResult(result);
+                if (result.HasMessage)
+                {
+                    PrintActionResult(result);
+                }
             }
             
             isRunning = _player.IsAlive &&

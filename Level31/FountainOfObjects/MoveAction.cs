@@ -31,11 +31,11 @@ internal class MoveAction : IPlayerAction
         };
 
         if (!_map.IsOnMap(newPosition))
-            return new ActionResult(false, "You can't go in that direction.");
+            return new ActionResult { Success = false, Message = "You can't go in that direction." };
 
         _player.Position = newPosition;
         _map.GetObstacleAt(_player.Position)?.ApplyEffects(_map, _player);
 
-        return new ActionResult(true, $"You carefully step into the room to the {_direction}.");
+        return new ActionResult { Success = true };
     }
 }

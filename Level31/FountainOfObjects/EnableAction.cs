@@ -23,9 +23,9 @@ internal class EnableAction : IPlayerAction
         {
             _map.Fountain.IsActivated = true;
 
-            return new ActionResult(true, "You hear a quiet click as you place the gem into the socket.");
+            return new ActionResult { Success = true };
         }
 
-        return new ActionResult(false, "The Fountain isn't in this room. Keep looking!");
+        return new ActionResult { Success = false, Message = "The Fountain is in another room. Keep looking!"};
     }
 }

@@ -44,8 +44,5 @@ internal class Maelstrom : Monster
                 Position = newPosition;
             }
         }
-
-        Console.WriteLine($"Maelstrom is now in position {Position}");
-        Console.ReadKey();
     }
 }
