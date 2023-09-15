@@ -1,29 +1,55 @@
-﻿Person p = new Person("Mirko", new DateTime(1987, 7, 20));
+﻿using Level32;
 
-Console.WriteLine($"{p.Name} was born on a {p.BirthDate.DayOfWeek}.");
-Console.WriteLine($"They are {p.Age} years old.");
-
-/***** Type Definitions *****/
-
-public class Person
+static void Test1()
 {
-    public string Name { get; }
-    public DateTime BirthDate { get; }
+    var p = new Person("Mirko", new DateTime(1987, 7, 20));
 
-    public int Age
+    Console.WriteLine($"{p.Name} was born on a {p.BirthDate.DayOfWeek}.");
+    Console.WriteLine($"They are {p.Age} years old.");
+}
+
+static void Test2()
+{
+    var gradebook = new Gradebook();
+
+    var s1 = new Student("Mirko");
+    s1.AddGrade("Programming", 100);
+    s1.AddGrade("English", 90);
+
+    gradebook.Add(s1);
+
+    var s2 = new Student("John");
+    s2.AddGrade("Programming", 85);
+    s2.AddGrade("English", 100);
+
+    gradebook.Add(s2);
+
+    foreach (Student s in gradebook)
     {
-        get
+        Console.WriteLine($"{s.Name}'s Grades");
+        Console.WriteLine("---------------------------");
+
+        foreach ((string courseName, int grade) in s.Grades)
         {
-            DateTime now = DateTime.Now;
-            TimeSpan delta = now - BirthDate;
-
-            return (int)(delta.TotalDays / 365);
+            Console.WriteLine($"{courseName}: {grade}");
         }
-    }
 
-    public Person(string name, DateTime birthDate)
-    {
-        Name = name;
-        BirthDate = birthDate;
+        Console.WriteLine();
     }
 }
+
+static void Test3()
+{
+    var number = new Nullable<int>();
+
+    if (number.HasValue)
+    {
+        Console.WriteLine($"The secret number is {number}.");
+    }
+    else
+    {
+        Console.WriteLine("The secret number hasn't been specified.");
+    }
+}
+
+Test3();
