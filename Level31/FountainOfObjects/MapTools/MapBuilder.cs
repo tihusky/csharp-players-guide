@@ -1,4 +1,7 @@
-﻿namespace FountainOfObjects;
+﻿using FountainOfObjects.MapTools.Obstacles;
+using FountainOfObjects.MapTools.Obstacles.Monsters;
+
+namespace FountainOfObjects.MapTools;
 
 internal static class MapBuilder
 {
@@ -10,11 +13,11 @@ internal static class MapBuilder
             new Entrance(new Position(0, 0)),
             new Fountain(new Position(0, 2))
         );
-        
+
         map.AddPit(new Position(1, 2));
         map.AddMonster(new Amarok(new Position(3, 1)));
         map.AddMonster(new Maelstrom(new Position(2, 0)));
-        
+
         return map;
     }
 
@@ -26,7 +29,7 @@ internal static class MapBuilder
             new Entrance(new Position(4, 0)),
             new Fountain(new Position(2, 4))
         );
-        
+
         map.AddPit(new Position(2, 2));
         map.AddPit(new Position(4, 3));
         map.AddMonster(new Amarok(new Position(1, 1)));
@@ -44,7 +47,7 @@ internal static class MapBuilder
             new Entrance(new Position(7, 5)),
             new Fountain(new Position(1, 1))
         );
-        
+
         map.AddPit(new Position(1, 3));
         map.AddPit(new Position(3, 1));
         map.AddPit(new Position(4, 5));

@@ -1,4 +1,4 @@
-﻿namespace FountainOfObjects;
+﻿namespace FountainOfObjects.MapTools.Obstacles.Monsters;
 
 internal class Amarok : Monster
 {

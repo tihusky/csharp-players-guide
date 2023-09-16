@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FountainOfObjects.MapTools;
+using FountainOfObjects.PlayerActions;
 
 namespace FountainOfObjects;
 
@@ -38,7 +35,7 @@ internal class Game
     {
         Console.Clear();
         Helpers.WriteColoredMessage(
-            new ColoredMessage(result.Success ? ConsoleColor.Green : ConsoleColor.Red, result.Message));
+            new ColoredMessage(result.Success ? ConsoleColor.Green : ConsoleColor.Red, result.Message!));
         Console.WriteLine("\nPress any key to continue...");
         Console.ReadKey();
     }

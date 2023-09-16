@@ -1,4 +1,4 @@
-﻿namespace FountainOfObjects;
+﻿namespace FountainOfObjects.PlayerActions;
 
 internal struct ActionResult
 {

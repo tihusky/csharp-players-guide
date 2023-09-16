@@ -1,6 +1,6 @@
 ﻿/* The base for anything special on the map. */
 
-namespace FountainOfObjects;
+namespace FountainOfObjects.MapTools;
 
 internal abstract class GameObject
 {

@@ -1,6 +1,6 @@
 ﻿/* The base for elements that have an effect on the player when encountered. */
 
-namespace FountainOfObjects;
+namespace FountainOfObjects.MapTools.Obstacles;
 
 internal abstract class Obstacle : GameObject
 {

@@ -1,4 +1,7 @@
-﻿namespace FountainOfObjects;
+﻿using FountainOfObjects.MapTools;
+using FountainOfObjects.MapTools.Obstacles.Monsters;
+
+namespace FountainOfObjects.PlayerActions;
 
 internal class ShootAction : IPlayerAction
 {
