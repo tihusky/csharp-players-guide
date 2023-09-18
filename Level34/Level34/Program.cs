@@ -62,4 +62,34 @@ void Test6()
     Console.WriteLine("number: " + number);
 }
 
-Test6();
+void PrintHighscore(Highscore highscore)
+{
+    // Using the Deconstruct method with three parameters
+    (string name, int points, int level) = highscore;
+
+    Console.Write("Name".PadRight(10));
+    Console.WriteLine($"{name,10}");
+    Console.Write("Points".PadRight(10));
+    Console.WriteLine($"{points,10}");
+    Console.Write("Level".PadRight(10));
+    Console.WriteLine($"{level,10}");
+}
+
+void Test7()
+{
+    var highscore = new Highscore("R2-D2", 13475, 15);
+
+    PrintHighscore(highscore);
+}
+
+void Test8()
+{
+    var faction = Faction.Klingons;
+
+    Console.Write("You're now playing as: ");
+    Console.ForegroundColor = faction.GetColor();
+    Console.WriteLine(faction);
+    Console.ResetColor();
+}
+
+Test8();

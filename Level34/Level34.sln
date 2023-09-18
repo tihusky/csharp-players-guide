@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level34", "Level34\Level34.csproj", "{39997EED-5E4B-4A91-A3BA-6A8B4656B49A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Level34", "Level34\Level34.csproj", "{39997EED-5E4B-4A91-A3BA-6A8B4656B49A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaferNumberCrunching", "SaferNumberCrunching\SaferNumberCrunching.csproj", "{F8C9B7C7-CDEF-4257-B7EE-FD81F3A0D8EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterRandom", "BetterRandom\BetterRandom.csproj", "{6D4B21E5-4031-4B63-8CA8-1F00FACAB556}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{39997EED-5E4B-4A91-A3BA-6A8B4656B49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39997EED-5E4B-4A91-A3BA-6A8B4656B49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39997EED-5E4B-4A91-A3BA-6A8B4656B49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8C9B7C7-CDEF-4257-B7EE-FD81F3A0D8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8C9B7C7-CDEF-4257-B7EE-FD81F3A0D8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8C9B7C7-CDEF-4257-B7EE-FD81F3A0D8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8C9B7C7-CDEF-4257-B7EE-FD81F3A0D8EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D4B21E5-4031-4B63-8CA8-1F00FACAB556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D4B21E5-4031-4B63-8CA8-1F00FACAB556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D4B21E5-4031-4B63-8CA8-1F00FACAB556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D4B21E5-4031-4B63-8CA8-1F00FACAB556}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
