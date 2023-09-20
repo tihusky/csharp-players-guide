@@ -1,4 +1,4 @@
-﻿Test2();
+﻿Test3();
 
 static void Test1()
 {
@@ -64,6 +64,22 @@ static void Test2()
     {
         Console.WriteLine("\nWe're all done here.");
     }
+}
+
+static void Test3()
+{
+    try
+    {
+        DoStuff();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.StackTrace);
+    }
+
+    void DoStuff() => DoMoreStuff();
+
+    void DoMoreStuff() => throw new Exception();
 }
 
 /***** Type Definitions *****/
