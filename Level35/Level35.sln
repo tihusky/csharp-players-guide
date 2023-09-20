@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level35", "Level35\Level35.csproj", "{22E5DE7C-FD31-441F-8104-B8C06B110171}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Level35", "Level35\Level35.csproj", "{22E5DE7C-FD31-441F-8104-B8C06B110171}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExeptisGame", "ExeptisGame\ExeptisGame.csproj", "{B9F2863A-80C3-407A-A883-71C445F51752}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{22E5DE7C-FD31-441F-8104-B8C06B110171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E5DE7C-FD31-441F-8104-B8C06B110171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E5DE7C-FD31-441F-8104-B8C06B110171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9F2863A-80C3-407A-A883-71C445F51752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F2863A-80C3-407A-A883-71C445F51752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F2863A-80C3-407A-A883-71C445F51752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F2863A-80C3-407A-A883-71C445F51752}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
