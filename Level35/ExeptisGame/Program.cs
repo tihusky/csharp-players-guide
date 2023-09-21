@@ -11,13 +11,12 @@ void Play()
 {
     int secretNumber = new Random().Next(10);
     List<int> pickedNumbers = new();
-    Player playerOne = new("Player One");
-    Player playerTwo = new("Player Two");
-    Player currentPlayer = playerOne;
+    string playerName = "Player One";
 
     while (true)
     {
-        Console.Write($"{currentPlayer.Name}, pick a number: ");
+        Console.Clear();
+        Console.Write($"{playerName}, pick a number: ");
         bool isNumber = int.TryParse(Console.ReadLine(), out int number);
 
         if (!isNumber)
@@ -37,10 +36,10 @@ void Play()
         }
 
         if (number == secretNumber)
-            throw new GameOverException($"Game over! {currentPlayer.Name} ate the oatmeal raisin cookie.");
+            throw new GameOverException($"Game over! {playerName} ate the oatmeal raisin cookie.");
 
         pickedNumbers.Add(number);
-        currentPlayer = (currentPlayer == playerOne) ? playerTwo : playerOne;
+        playerName = (playerName == "Player One") ? "Player Two" : "Player One";
     }
 }
 
@@ -50,5 +49,3 @@ internal class GameOverException : Exception
 {
     public GameOverException(string message) : base(message) {}
 }
-
-internal record Player(string Name);
