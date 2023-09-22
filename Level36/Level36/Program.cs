@@ -1,4 +1,4 @@
-﻿Test2();
+﻿Test3();
 
 static void Test1()
 {
@@ -31,6 +31,19 @@ static void Test2()
         DisplayError(e.Message);
     }
 }
+
+static void Test3()
+{
+    var numbers = new List<int>() { 10, 20, 30, 40, 50 };
+
+    // Using a method with a parameter of Predicate<T>
+    if (numbers.TrueForAll(IsEven))
+        Console.WriteLine("All numbers in the list are even.");
+    else
+        Console.WriteLine("The list contains one or more odd numbers.");
+}
+
+static bool IsEven(int number) => number % 2 == 0;
 
 static void DisplayHorizontally(int index, object? value)
 {
