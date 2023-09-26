@@ -9,9 +9,9 @@ int userSelection = GetIntBetween(1, 3, ">");
 
 Sieve sieve = userSelection switch
 {
-    1 => new Sieve(IsEven),
-    2 => new Sieve(IsPositive),
-    3 => new Sieve(IsMultipleOf10)
+    1 => new Sieve(number => number % 2 == 0),
+    2 => new Sieve(number => number > 0),
+    3 => new Sieve(number => number % 10 == 0)
 };
 
 Console.Clear();
@@ -67,10 +67,6 @@ void WriteLineColored(string text, ConsoleColor color)
     Console.WriteLine(text);
     Console.ResetColor();
 }
-
-bool IsEven(int number) => number % 2 == 0;
-bool IsPositive(int number) => number > 0;
-bool IsMultipleOf10(int number) => number % 10 == 0;
 
 /***** Type Definitions *****/
 
