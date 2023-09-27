@@ -1,6 +1,8 @@
-﻿if (!File.Exists("Scores.csv"))
+﻿void Test1()
 {
-    List<Score> scores = new()
+    if (!File.Exists("Scores.csv"))
+    {
+        List<Score> scores = new()
     {
         new Score("Mirko", 19482, 17),
         new Score("R2-D2", 12420, 15),
@@ -8,13 +10,14 @@
         new Score("GONK", -1, 1)
     };
 
-    SaveScores(scores);
-}
-else
-{
-    List<Score> scores = LoadScores();
+        SaveScores(scores);
+    }
+    else
+    {
+        List<Score> scores = LoadScores();
 
-    DisplayScores(scores);
+        DisplayScores(scores);
+    }
 }
 
 void SaveScores(List<Score> scores)
@@ -58,6 +61,60 @@ void DisplayScores(List<Score> scores)
     foreach (Score s in scores)
         Console.WriteLine($"{s.Name, -8} {s.Points, 6} {s.Level, 3}");
 }
+
+void Test2()
+{
+    try
+    {
+        Directory.CreateDirectory("Testdata");
+    }
+    catch (UnauthorizedAccessException)
+    {
+        WriteColored("ERROR ", ConsoleColor.Red);
+        Console.WriteLine("No permission to create the directory.");
+    }
+
+    try
+    {
+        File.Create(@"Testdata\Test1.txt");
+        File.Create(@"Testdata\Test2.txt");
+        File.Create(@"Testdata\AwesomePicture.png");
+    }
+    catch (UnauthorizedAccessException)
+    {
+        WriteColored("ERROR ", ConsoleColor.Red);
+        Console.WriteLine("No permission to create the files.");
+    }
+
+    var dirInfo = new DirectoryInfo("Testdata");
+
+    if (dirInfo.Exists)
+    {
+        Console.Write("Files in the ");
+        WriteColored(dirInfo.Name, ConsoleColor.DarkCyan);
+        Console.WriteLine(" folder");
+
+        foreach (string filePath in Directory.EnumerateFiles("Testdata"))
+        {
+            var fileInfo = new FileInfo(filePath);
+            Console.WriteLine(fileInfo.Name);
+        }
+    }
+    else
+    {
+        WriteColored("ERROR ", ConsoleColor.Red);
+        Console.WriteLine("The directory doesn't exist!");
+    }
+
+    void WriteColored(string message, ConsoleColor color)
+    {
+        Console.ForegroundColor = color;
+        Console.Write(message);
+        Console.ResetColor();
+    }
+}
+
+Test2();
 
 /***** Type Definitions *****/
 
