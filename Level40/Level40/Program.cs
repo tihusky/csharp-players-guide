@@ -49,7 +49,57 @@ void Test2()
     Console.WriteLine($"You're a member of {GetGenerationName(birthYear)}.");
 }
 
-Test2();
+void Test3()
+{
+    int ScoreFor(Orc orc)
+    {
+        return orc switch
+        {
+            { Sword.Type: not SwordType.WoodenStick } => 12,
+            _                                         => 3,
+        };
+    }
+
+    List<Orc> orcs = new()
+    {
+        new Orc(new Sword(SwordType.WoodenStick)), // 3 points
+        new Orc(new Sword(SwordType.ArmingSword)), // 12 points
+        new Orc(new Sword(SwordType.Longsword)),   // 12 points
+    };
+
+    foreach (Orc orc in orcs)
+    {
+        Console.WriteLine($"This monster is worth {ScoreFor(orc)} points.");
+    }
+}
+
+void Test4()
+{
+    int ScoreFor(Dragon dragon)
+    {
+        return (dragon.Type, dragon.LifePhase) switch
+        {
+            (DragonType.Gold, LifePhase.Ancient)      => 150,
+            (DragonType.Gold, LifePhase.Adult)        => 100,
+            (DragonType.Gold, _)                      => 85,  // All golden dragons that aren't Adult or Ancient
+            (_, not LifePhase.Wyrmling)               => 80,  // All dragons that aren't Wyrmlings
+            (_, _)                                    => 60   // All Wyrmlings (could have used a simple discard pattern)
+        };
+    }
+
+    List<Dragon> dragons = new()
+    {
+        new Dragon(DragonType.Blue, LifePhase.Wyrmling), // 60
+        new Dragon(DragonType.Gold, LifePhase.Adult),    // 100
+        new Dragon(DragonType.Black, LifePhase.Young),   // 80
+        new Dragon(DragonType.Gold, LifePhase.Wyrmling)  // 85
+    };
+
+    foreach (Dragon dragon in dragons)
+        Console.WriteLine($"{dragon.Type} {dragon.LifePhase}: {ScoreFor(dragon)}");
+}
+
+Test4();
 
 /***** Type Definitions *****/
 
