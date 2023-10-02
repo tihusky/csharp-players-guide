@@ -99,15 +99,49 @@ void Test4()
         Console.WriteLine($"{dragon.Type} {dragon.LifePhase}: {ScoreFor(dragon)}");
 }
 
-Test4();
+void Test5()
+{
+    int ScoreFor(Dragon dragon)
+    {
+        return dragon switch
+        {
+            (_, LifePhase.Ancient)  => 125,
+            (_, LifePhase.Adult)    => 100,
+            (_, LifePhase.Young)    => 75,
+            (_, LifePhase.Wyrmling) => 50
+        };
+    }
+
+    Dragon dragon = new(DragonType.Red, LifePhase.Adult);
+
+    Console.WriteLine($"This monster is worth {ScoreFor(dragon)} points.");
+}
+
+void Test6()
+{
+    Monster monster = new Orc(new Sword(SwordType.Longsword));
+
+    if (monster is Dragon || monster is Orc { Sword.Type: not SwordType.WoodenStick })
+        Console.WriteLine("There's a big, scary monster ahead!");
+}
+
+Test6();
 
 /***** Type Definitions *****/
 
 public abstract record Monster;
 public record Skeleton : Monster;
 public record Snake(double Length) : Monster;
-public record Dragon(DragonType Type, LifePhase LifePhase) : Monster;
 public record Orc(Sword Sword) : Monster;
+
+public record Dragon(DragonType Type, LifePhase LifePhase) : Monster
+{
+    public void Deconstruct(out DragonType type, out LifePhase phase)
+    {
+        type = Type;
+        phase = LifePhase;
+    }
+}
 
 public record Sword(SwordType Type);
 
