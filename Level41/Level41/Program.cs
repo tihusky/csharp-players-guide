@@ -1,6 +1,6 @@
 ﻿using Level41;
 
-Test4();
+Test5();
 
 void Test1()
 {
@@ -60,6 +60,18 @@ void Test4()
     };
 
     Console.WriteLine($"The tile at (x: 1, y: 2) is {map[1, 2]}");
+}
+
+void Test5()
+{
+    Point2 a = new Point2(4, 2);
+    Point3 b = a;
+
+    Console.WriteLine($"a.X: {a.X}, a.Y: {a.Y}");
+    Console.WriteLine($"b.X: {b.X}, b.Y: {b.Y}, b.Z: {b.Z}");
+
+    Point3 c = new Point3(1, 3, 5);
+    Point2 d = (Point2)c;
 }
 
 /***** Type Definitions *****/
