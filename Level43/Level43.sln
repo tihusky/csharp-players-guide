@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level43", "Level43\Level43.csproj", "{D1E6B01A-E184-477C-9312-DA9473607C01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Level43", "Level43\Level43.csproj", "{D1E6B01A-E184-477C-9312-DA9473607C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRepeatingStream", "TheRepeatingStream\TheRepeatingStream.csproj", "{FD31F1A1-74F4-46DC-AE7E-64980485E12A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D1E6B01A-E184-477C-9312-DA9473607C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1E6B01A-E184-477C-9312-DA9473607C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1E6B01A-E184-477C-9312-DA9473607C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD31F1A1-74F4-46DC-AE7E-64980485E12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD31F1A1-74F4-46DC-AE7E-64980485E12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD31F1A1-74F4-46DC-AE7E-64980485E12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD31F1A1-74F4-46DC-AE7E-64980485E12A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
